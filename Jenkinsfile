@@ -15,12 +15,12 @@ node {
         sh ". venv/bin/activate"*/
         sh "pip install django"
         //sh "pip install -r requirements.txt"
-        sh "python manage.py makemigrations"
-        sh "python manage.py migrate"
+        sh "python3 manage.py makemigrations"
+        sh "python3 manage.py migrate"
     }
 
     stage('Test') {
-        sh "python manage.py test"
+        sh "python3 manage.py test"
     }
 
     stage('SonarQube analysis') {
