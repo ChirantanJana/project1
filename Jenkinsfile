@@ -11,8 +11,8 @@ node {
         sh "cp /var/jenkins_home/ansible-hosts ${workspace}/ci/ansible/hosts"
         sh '''if [ ! -d "venv" ]; then
             virtualenv venv
-        fi'''*/
-        sh ". venv/bin/activate"
+        fi'''
+        sh ". venv/bin/activate"*/
         sh "pip install django"
         sh "pip install -r requirements.txt"
         sh "python manage.py makemigrations"
