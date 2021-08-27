@@ -7,8 +7,8 @@ node {
         env.GIT_BRANCH = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
         env.GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
         def workspace = pwd()
-        sh "cp /var/jenkins_home/deploy-app-vars.yml ${workspace}/ci/ansible/"
-        sh "cp /var/jenkins_home/ansible-hosts ${workspace}/ci/ansible/hosts"
+        //sh "cp /var/jenkins_home/deploy-app-vars.yml ${workspace}/ci/ansible/"
+        //sh "cp /var/jenkins_home/ansible-hosts ${workspace}/ci/ansible/hosts"
         sh '''if [ ! -d "venv" ]; then
             virtualenv venv
         fi'''
