@@ -28,7 +28,7 @@ node {
     stage('deploy'){
         CONTAINER = test2_web
         echo "......Deployment phase start......"
-        sudo docker run -d -p 8180:8080 --name test2_web test2_web
+        //sudo docker run -d -p 8180:8080 --name test2_web test2_web
         echo "...deployed here: 127.0.0.1.8180 " 
     }
 }
