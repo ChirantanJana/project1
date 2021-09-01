@@ -14,30 +14,12 @@ node {
         fi'''
         sh ". venv/bin/activate"*/
         sh "pip install django"
-        //sh "pip install -r requirements.txt"
+        sh "pip install -r requirement.txt"
         sh "python3 manage.py makemigrations"
         sh "python3 manage.py migrate"
     }
-
-    stage('Test') {
-        sh "python3 manage.py test"
+    stage('creating docker-image')
+    {
+        dockerimage = docker.build('./Dockerfile')
     }
-
-    stage('SonarQube analysis') {
-        // The SonarQube server requires at least 2GB of RAM to run efficiently and 1GB of free RAM for the OS.
-        def scannerHome = tool 'sonar scanner';
-        withSonarQubeEnv('sonar server') {
-            sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
-        }
-    }
-
-    stage("SonarQube Quality Gate") {
-        timeout(time: 1, unit: 'HOURS') {
-            def qg = waitForQualityGate()
-            if (qg.status != 'OK') {
-                error "Pipeline aborted due to quality gate failure: ${qg.status}"
-            }
-        }
-    }
-
 }
