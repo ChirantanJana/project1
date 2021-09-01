@@ -22,4 +22,7 @@ node {
     {
         sh "python3 manage.py test "
     }
+    stage('docker-image'){
+        dockerimage = sh "docker-compose.yml build"
+    }
 }
