@@ -18,5 +18,8 @@ node {
         sh "python3 manage.py makemigrations"
         sh "python3 manage.py migrate"
     }
-    
+    stage('creating docker-image')
+    {
+        dockerimage= docker-compose build
+    }
 }
