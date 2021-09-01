@@ -20,6 +20,6 @@ node {
     }
     stage('creating docker-image')
     {
-        dockerimage= docker-compose build
+        dockerimage = docker.build('.')
     }
 }
