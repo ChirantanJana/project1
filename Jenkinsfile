@@ -18,8 +18,8 @@ node {
         sh "python3 manage.py makemigrations"
         sh "python3 manage.py migrate"
     }
-    stage('creating docker-image')
+    stage('test')
     {
-        dockerimage = docker.build('./Dockerfile')
+        sh "python3 manage.py test "
     }
 }
