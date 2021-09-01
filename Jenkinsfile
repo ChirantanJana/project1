@@ -18,6 +18,4 @@ node {
         sh "python3 manage.py makemigrations"
         sh "python3 manage.py migrate"
     }
-    }
-
 }
