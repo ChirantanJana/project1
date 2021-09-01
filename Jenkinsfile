@@ -26,9 +26,9 @@ node {
         dockerimage = sh "docker-compose build"
     }
     stage('deploy'){
-        CONTAINER = dockerimage
+        CONTAINER = test2_web
         echo "......Deployment phase start......"
-        sudo docker run -d -p 8180:8080 --name dockerimage dockerimage
+        sudo docker run -d -p 8180:8080 --name test2_web test2_web
         echo "...deployed here: 127.0.0.1.8180 " 
     }
 }
