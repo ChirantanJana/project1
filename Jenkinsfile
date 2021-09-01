@@ -14,7 +14,7 @@ node {
         fi'''
         sh ". venv/bin/activate"*/
         sh "pip install django"
-        //sh "pip install -r requirements.txt"
+        sh "pip install -r requirements.txt"
         sh "python3 manage.py makemigrations"
         sh "python3 manage.py migrate"
     }
