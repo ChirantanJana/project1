@@ -23,12 +23,12 @@ node {
         sh "python3 manage.py test "
     }
     stage('docker-image'){
-        dockerimage = sh "docker-compose build"
+        dockerimage = sh "docker build -t django_app:v1"
     }
     stage('deploy'){
         //CONTAINER = dockerimage
         echo "......Deployment phase start......"
-        sh "docker run -d -p 8180:8080 --name test2_web test2_web"
+        //sh "docker run -d -p 8180:8080 --name test2_web test2_web"
         echo "...deployed here: 127.0.0.1.8180 " 
     }
 }
