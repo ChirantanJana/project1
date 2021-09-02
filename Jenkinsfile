@@ -23,7 +23,7 @@ node {
         sh "python3 manage.py test "
     }
     stage('docker-image'){
-        dockerimage = sh "docker build -t django_app:v1"
+        dockerimage = sh "docker-compose build -t django_app:v1"
     }
     stage('deploy'){
         //CONTAINER = dockerimage
